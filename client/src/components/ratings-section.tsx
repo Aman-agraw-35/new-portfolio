@@ -9,10 +9,16 @@ export function RatingsSection() {
   const [average, setAverage] = useState<number>(0);
 
   const fetchRatings = async () => {
-    const response = await fetch('/api/ratings');
-    const data = await response.json();
-    setRatings(data.ratings);
-    setAverage(data.average);
+    try {
+      const response = await fetch('/api/ratings');
+      const data = await response.json();
+      setRatings(data.ratings || []);
+      setAverage(data.average || 0);
+    } catch (error) {
+      console.error('Error fetching ratings:', error);
+      setRatings([]);
+      setAverage(0);
+    }
   };
 
   const submitRating = async () => {
