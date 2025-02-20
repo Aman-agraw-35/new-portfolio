@@ -1,4 +1,3 @@
-
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
@@ -8,10 +7,14 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/portfo
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(MONGODB_URI);
+    await mongoose.connect(MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+
     console.log('MongoDB Connected Successfully');
-    
-    mongoose.connection.on('error', err => {
+
+    mongoose.connection.on('error', (err) => {
       console.error('MongoDB connection error:', err);
     });
 
