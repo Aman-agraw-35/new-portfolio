@@ -20,6 +20,7 @@ export default function Home() {
       <AboutSection />
       <SkillsSection />
       <ProjectsSection />
+      <RatingsSection />
       <ContactSection />
     </motion.div>
   );
