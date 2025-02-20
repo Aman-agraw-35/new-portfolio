@@ -1,7 +1,7 @@
 
 import mongoose from 'mongoose';
 
-const MONGODB_URI = 'mongodb+srv://ghost:ghostishere@cluster0.llqvm.mongodb.net/';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/myapp';
 
 const connectDB = async () => {
   try {
