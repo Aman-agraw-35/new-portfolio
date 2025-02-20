@@ -13,7 +13,7 @@ export default {
       colors: {
         background: {
           DEFAULT: "hsl(var(--background))",
-          lighter: "hsl(0 0% 98%)",
+          lighter: "hsl(0 0% 99%)",
         },
         foreground: "hsl(var(--foreground))",
         card: {
