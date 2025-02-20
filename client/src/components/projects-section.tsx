@@ -5,16 +5,47 @@ import { useState } from "react";
 
 const projects = [
   {
-    title: "Project 1",
-    description: "Description of project 1",
+    title: "Chat Application",
+    description: "Real-time chat application built with MERN stack",
+    image: "https://img.freepik.com/premium-vector/chat-app-logo-design-template-can-be-used-icon-chat-application-logo_605910-1724.jpg",
+    link: "https://github.com/Aman-agraw-35/mernchat-app",
     category: "web",
   },
   {
-    title: "Project 2",
-    description: "Description of project 2",
-    category: "mobile",
+    title: "Smart India Hackathon",
+    description: "Project developed for Smart India Hackathon 2024",
+    image: "https://i.ytimg.com/vi/znMbKz6ZPno/maxresdefault.jpg",
+    link: "https://github.com/Aman-agraw-35/SmartIndiaHackathon-2k24",
+    category: "web",
   },
-  // Add more projects as needed
+  {
+    title: "Gunsmart",
+    description: "E-commerce platform for hunting equipment",
+    image: "https://static.wixstatic.com/media/8d1f6c_ae1eab54af5a4a409036fed18dda5efc.jpg",
+    link: "https://github.com/Aman-agraw-35/Gunsmart",
+    category: "web",
+  },
+  {
+    title: "Ghost Games",
+    description: "Gaming platform project",
+    image: "https://moewalls.com/wp-content/uploads/2023/01/ghost-call-of-duty-modern-warfare-ii-thumb-728x410.jpg",
+    link: "https://github.com/Aman-agraw-35/GHOST-GAMES-",
+    category: "web",
+  },
+  {
+    title: "Jan Sahayata",
+    description: "Google's Solutions Challenge 2024 Project",
+    image: "https://curlytales.com/wp-content/uploads/2020/04/Dubai-based-charities-distribute-over-31570-daily-meals-to-underprivileged-people.png",
+    link: "https://github.com/Aman-agraw-35/SOLUTIONS-CHALLENGE-24-PROJECT",
+    category: "web",
+  },
+  {
+    title: "Google Keep Clone",
+    description: "A clone of Google's note-taking application",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwX8l9SlO0FrYJ-_BoZVAMNAavApyQyzWcBw&s",
+    link: "https://github.com/Aman-agraw-35/Google-keep-clone",
+    category: "web",
+  }
 ];
 
 const categories = ["all", "web", "mobile"];

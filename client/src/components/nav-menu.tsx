@@ -9,6 +9,17 @@ const menuItems = [
 ];
 
 export function NavMenu() {
+  const isMobile = useMobile; // Assuming useMobile is defined elsewhere
+  const [isOpen, setIsOpen] = useState(false); // Assuming useState is imported
+
+  const socialLinks = {
+    telegram: "https://t.me/amanagraw35",
+    twitter: "https://twitter.com/AmanAgrawal1310",
+    linkedin: "https://www.linkedin.com/in/aman-agrawal-269233252",
+    github: "https://github.com/Aman-agraw-35",
+    resume: "https://drive.google.com/file/d/1_y9l9mNPAc9FSRJRVhk0IGgXM_N8YzXR/view?usp=drive_link"
+  };
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -27,6 +38,14 @@ export function NavMenu() {
             {item.label}
           </motion.a>
         ))}
+        {/* Added social links here */}
+        <div className="flex gap-4">
+          {Object.entries(socialLinks).map(([platform, link]) => (
+            <a key={platform} href={link} target="_blank" rel="noopener noreferrer" className="text-foreground/80 hover:text-foreground transition-colors">
+              {platform}
+            </a>
+          ))}
+        </div>
       </div>
     </motion.nav>
   );
