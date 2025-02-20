@@ -41,10 +41,7 @@ export function AboutSection() {
           >
             <h3 className="text-2xl font-semibold">My Journey</h3>
             <p className="text-muted-foreground">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-              ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat.
+              I'm Aman Agrawal, a student at IIIT Bhopal with a CGPA of 8.56 and a strong academic foundation, having cleared IIT JEE. I specialize in full-stack web development with expertise in the MERN stack, Next.js, and DevOps. Additionally, I am proficient in Data Structures and Algorithms (DSA) and actively participate in competitive programming. My technical skills, problem-solving abilities, and continuous learning mindset drive me to excel in software development.
             </p>
           </motion.div>
         </div>
