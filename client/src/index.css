@@ -8,38 +8,6 @@
   }
 
   body {
-    @apply font-sans antialiased text-gray-800;
-  }
-  
-  body {
-    @apply bg-background-lighter;
-  }
-  
-  .dark body {
-    @apply bg-background text-gray-100;
-  }
-
-  h1 {
-    @apply text-gray-900 font-bold;
-  }
-
-  h2, h3 {
-    @apply text-gray-800 font-semibold;
-  }
-
-  p {
-    @apply text-gray-700 leading-relaxed;
-  }
-
-  .dark h1 {
-    @apply text-gray-100;
-  }
-
-  .dark h2, .dark h3 {
-    @apply text-gray-200;
-  }
-
-  .dark p {
-    @apply text-gray-300;
+    @apply font-sans antialiased bg-background text-foreground;
   }
 }
