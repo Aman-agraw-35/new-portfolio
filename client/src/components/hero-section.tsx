@@ -52,10 +52,11 @@ export function HeroSection() {
             Welcome to my portfolio
           </motion.h2>
 
+          {/* Animated pop-up for "Hi, I'm Aman Agrawal" */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.5, type: "spring", stiffness: 100 }}
             className="text-4xl md:text-6xl font-bold mb-6"
           >
             Hi, I'm <span className="text-primary">Aman Agrawal</span>
@@ -64,7 +65,7 @@ export function HeroSection() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.7 }}
             className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto"
           >
             A passionate developer crafting beautiful and functional web experiences
@@ -74,7 +75,7 @@ export function HeroSection() {
             href="#about"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.9 }}
             className="inline-block animate-bounce"
           >
             <ArrowDown className="h-8 w-8 text-primary" />

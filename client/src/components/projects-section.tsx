@@ -48,7 +48,7 @@ const projects = [
   }
 ];
 
-const categories = ["all", "web", "mobile"];
+const categories = ["all", "web"];
 
 export function ProjectsSection() {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -58,7 +58,7 @@ export function ProjectsSection() {
   );
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-20 bg-muted/50">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -95,7 +95,7 @@ export function ProjectsSection() {
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 object-fill"
                 />
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>

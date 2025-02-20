@@ -8,13 +8,25 @@ const skills = [
   { name: "JavaScript", category: "Frontend" },
   { name: "React", category: "Frontend" },
   { name: "Node", category: "Backend" },
+  { name: "ExpressJs", category: "Backend" },
   { name: "Tailwind", category: "Frontend" },
   { name: "Bootstrap", category: "Frontend" },
   { name: "MongoDB", category: "Backend" },
   { name: "NextJS", category: "Frontend" },
   { name: "Docker", category: "DevOps" },
   { name: "Kubernetes", category: "DevOps" },
+  { name: "CI/CD", category: "DevOps" },
+  { name: "Jenkins", category: "DevOps" },
+  { name: "Terraform", category: "DevOps" },
+  { name: "AWS", category: "DevOps" },
+  { name: "Azure", category: "DevOps" },
+  { name: "Google Cloud", category: "DevOps" },
+  { name: "Nginx", category: "DevOps" },
+  { name: "Prometheus", category: "DevOps" },
+  { name: "Grafana", category: "DevOps" },
+  { name: "Jira", category: "DevOps" },
 ];
+
 
 const categories = ["Frontend", "Backend", "DevOps"];
 
