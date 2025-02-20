@@ -7,12 +7,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Rating routes
   app.post('/api/ratings', async (req, res) => {
     try {
-      const { rating } = req.body;
-      if (!rating || rating < 1 || rating > 5) {
-        return res.status(400).json({ message: 'Invalid rating value' });
-      }
-
-      const newRating = new Rating({ rating });
+      const newRating = new Rating({ rating: req.body.rating });
       await newRating.save();
       res.status(201).json(newRating);
     } catch (error) {
@@ -23,7 +18,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.get('/api/ratings', async (req, res) => {
     try {
-      const ratings = await Rating.find().sort({ createdAt: -1 });
+      const ratings = await Rating.find();
       const averageRating = ratings.length > 0 
         ? ratings.reduce((acc, curr) => acc + curr.rating, 0) / ratings.length 
         : 0;
@@ -37,12 +32,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form route
   app.post('/api/contact', async (req, res) => {
     try {
-      const { name, email, message } = req.body;
-      if (!name || !email || !message) {
-        return res.status(400).json({ message: 'All fields are required' });
-      }
-
-      const contact = new Contact({ name, email, message });
+      const contact = new Contact({
+        name: req.body.name,
+        email: req.body.email,
+        message: req.body.message
+      });
       await contact.save();
       res.status(201).json(contact);
     } catch (error) {
