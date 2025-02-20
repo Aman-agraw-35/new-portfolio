@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 // Connect to MongoDB
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/portfolio');
+    await mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://ghost:ghostishere@cluster0.llqvm.mongodb.net/portfolio');
     console.log('MongoDB connected successfully');
   } catch (err) {
     console.error('MongoDB connection error:', err);
