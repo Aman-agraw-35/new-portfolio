@@ -91,7 +91,12 @@ export function ProjectsSection() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card>
+              <Card className="overflow-hidden cursor-pointer transition-transform hover:scale-105" onClick={() => window.open(project.link, '_blank')}>
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-48 object-cover"
+                />
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>
                 </CardHeader>
