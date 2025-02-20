@@ -3,7 +3,8 @@ import mongoose from 'mongoose';
 // Connect to MongoDB
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://ghost:ghostishere@cluster0.llqvm.mongodb.net/portfolio');
+    const uri = 'mongodb+srv://ghost:ghostishere@cluster0.llqvm.mongodb.net/portfolio';
+    await mongoose.connect(uri);
     console.log('MongoDB connected successfully');
   } catch (err) {
     console.error('MongoDB connection error:', err);
@@ -45,6 +46,6 @@ const contactSchema = new mongoose.Schema({
   }
 });
 
-export const Rating = mongoose.model('Rating', ratingSchema);
-export const Contact = mongoose.model('Contact', contactSchema);
+export const Rating = mongoose.models.Rating || mongoose.model('Rating', ratingSchema);
+export const Contact = mongoose.models.Contact || mongoose.model('Contact', contactSchema);
 export default connectDB;
