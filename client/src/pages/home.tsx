@@ -6,6 +6,7 @@ import { ProjectsSection } from "@/components/projects-section";
 import { ContactSection } from "@/components/contact-section";
 import { NavMenu } from "@/components/nav-menu";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { RatingsSection } from "@/components/ratings-section";
 
 export default function Home() {
   return (
