@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { useState } from "react";
 
 const menuItems = [
   { href: "#home", label: "Home" },
@@ -9,7 +11,7 @@ const menuItems = [
 ];
 
 export function NavMenu() {
-  const isMobile = useMobile; // Assuming useMobile is defined elsewhere
+  const isMobile = useIsMobile();
   const [isOpen, setIsOpen] = useState(false); // Assuming useState is imported
 
   const socialLinks = {
