@@ -7,6 +7,8 @@ import { ContactSection } from "@/components/contact-section";
 import { NavMenu } from "@/components/nav-menu";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { RatingsSection } from "@/components/ratings-section";
+import { TechnicalExperience } from "@/components/TechnicalExperience";
+import { AchievementsSection } from "@/components/AchievementsSection";
 
 export default function Home() {
   return (
@@ -20,6 +22,8 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <SkillsSection />
+      <AchievementsSection />
+      <TechnicalExperience/>
       <ProjectsSection />
       <RatingsSection />
       <ContactSection />

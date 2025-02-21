@@ -95,7 +95,7 @@ export function ProjectsSection() {
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-48 object-fill"
+                  className="w-full h-56 object-fill"
                 />
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>

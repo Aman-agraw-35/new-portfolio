@@ -11,3 +11,22 @@
     @apply font-sans antialiased bg-background text-foreground;
   }
 }
+
+/* Slim scrollbar for modern browsers */
+::-webkit-scrollbar {
+  width: 5px; /* Adjust the width to make it slimmer */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Track color */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* Scrollbar color */
+  border-radius: 10px; /* Rounded edges */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker on hover */
+}
+

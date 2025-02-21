@@ -35,19 +35,12 @@ export function NavMenu() {
             href={item.href}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="text-foreground/80 hover:text-foreground transition-colors"
+            className="text-foreground/60 hover:text-foreground transition-colors"
           >
             {item.label}
           </motion.a>
         ))}
-        {/* Added social links here */}
-        {/* <div className="flex gap-4">
-          {Object.entries(socialLinks).map(([platform, link]) => (
-            <a key={platform} href={link} target="_blank" rel="noopener noreferrer" className="text-foreground/80 hover:text-foreground transition-colors">
-              {platform}
-            </a>
-          ))}
-        </div> */}
+   
       </div>
     </motion.nav>
   );

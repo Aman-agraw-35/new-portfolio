@@ -19,7 +19,7 @@ const Footer = () => {
         onClick={scrollToTop}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="absolute left-1/2 transform -translate-x-1/2 -top-6 bg-white text-gray-900 p-3  rounded-full shadow-md transition hover:bg-gray-200"
+        className="absolute left-1/2 transform  -top-6 bg-white text-gray-900 p-3  rounded-full shadow-md transition hover:bg-gray-200"
       >
         <FontAwesomeIcon icon={faArrowUp} size="lg" />
       </motion.button>

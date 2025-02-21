@@ -23,11 +23,10 @@ export function AboutSection() {
           >
             <Card>
               <CardContent className="p-4 aspect-video">
-                <ReactPlayer
-                  url="your-video-url-here"
-                  width="100%"
-                  height="100%"
-                  controls
+                <img 
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-NFmiJPjIoJ6_4y7I-gwZo5dTD41GRMYFKQ&s" 
+                  alt="Description of image" 
+                  className="w-full h-full object-cover rounded-lg"
                 />
               </CardContent>
             </Card>
