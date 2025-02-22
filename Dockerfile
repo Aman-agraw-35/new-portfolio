@@ -1,23 +1,26 @@
-# Use the official Node.js image as base
+# Use an official Node.js image as a base
 FROM node:18-alpine
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json first to leverage Docker caching
-COPY package.json package-lock.json ./
+# Copy package.json and package-lock.json first
+COPY package*.json ./
 
 # Install dependencies
-RUN npm install --production
+RUN npm install
 
-# Copy the rest of the application files
+# Copy the rest of the application code
 COPY . .
 
-# Build the Next.js application
+# Ensure Vite is installed
+RUN npm install -g vite
+
+# Build the project
 RUN npm run build
 
-# Expose the Next.js default port
+# Expose the port your app runs on
 EXPOSE 3000
 
-# Start the application
-CMD ["npm", "run", "start"]
+# Command to run the application
+CMD ["npm", "start"]
