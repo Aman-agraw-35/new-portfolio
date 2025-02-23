@@ -5,9 +5,11 @@ import connectDB from "./db";
 
 const app = express();
 connectDB();
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Middleware for logging API response time
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;
@@ -26,11 +28,9 @@ app.use((req, res, next) => {
       if (capturedJsonResponse) {
         logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
       }
-
       if (logLine.length > 80) {
         logLine = logLine.slice(0, 79) + "…";
       }
-
       log(logLine);
     }
   });
@@ -46,22 +46,34 @@ app.use((req, res, next) => {
     const message = err.message || "Internal Server Error";
 
     res.status(status).json({ message });
-    throw err;
+    console.error("Error:", err);
   });
 
-  // importantly only setup vite in development and after
-  // setting up all the other routes so the catch-all route
-  // doesn't interfere with the other routes
+  // Setup Vite for development mode, otherwise serve static files
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
     serveStatic(app);
   }
 
-  // ALWAYS serve the app on port 5000
-  // this serves both the API and the client
-  const PORT = 5000;
+  // Run the app on PORT 80 (for AWS compatibility)
+  const PORT = 80;
   server.listen(PORT, "0.0.0.0", () => {
-    log(`serving on port ${PORT}`);
+    log(`Server is running on port ${PORT}`);
+  });
+
+  // Graceful Shutdown Handling
+  process.on("SIGTERM", () => {
+    log("SIGTERM received. Shutting down server.");
+    server.close(() => {
+      process.exit(0);
+    });
+  });
+
+  process.on("SIGINT", () => {
+    log("SIGINT received. Exiting...");
+    server.close(() => {
+      process.exit(0);
+    });
   });
 })();
