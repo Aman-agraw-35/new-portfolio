@@ -1,5 +1,5 @@
-# Use Node.js as base image
-FROM node:18-alpine
+# Base image for building
+FROM node:18-alpine AS builder
 
 # Set working directory
 WORKDIR /app
@@ -10,14 +10,27 @@ COPY package.json package-lock.json ./
 # Install dependencies
 RUN npm install
 
-# Copy entire project
+# Copy the entire project
 COPY . .
 
-# Build the Vite client
+# Build the project
 RUN npm run build
 
-# Expose necessary ports
-EXPOSE 80 5173 3000
+# Production image
+FROM node:18-alpine
 
-# Start both client and server
+WORKDIR /app
+
+# Copy built files and dependencies
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+
+# Expose necessary ports
+EXPOSE 80 3000
+
+# Set environment variables
+ENV MONGODB_URI=mongodb+srv://ghost:ghostishere@cluster0.llqvm.mongodb.net/
+
+# Start the server
 CMD ["npm", "start"]
