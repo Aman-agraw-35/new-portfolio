@@ -3,27 +3,24 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/portfolio';
+const MONGODB_URI ='mongodb+srv://ghost:ghostishere@cluster0.llqvm.mongodb.net/';
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    });
+    await mongoose.connect(MONGODB_URI); // ✅ Removed deprecated options
 
-    console.log('MongoDB Connected Successfully');
+    console.log('✅ MongoDB Connected Successfully');
 
     mongoose.connection.on('error', (err) => {
-      console.error('MongoDB connection error:', err);
+      console.error('❌ MongoDB connection error:', err);
     });
 
     mongoose.connection.on('disconnected', () => {
-      console.log('MongoDB disconnected');
+      console.log('⚠️ MongoDB disconnected');
     });
 
   } catch (error) {
-    console.error('MongoDB connection error:', error);
+    console.error('❌ MongoDB connection error:', error);
     process.exit(1);
   }
 };
