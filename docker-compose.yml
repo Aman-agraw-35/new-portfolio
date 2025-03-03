@@ -1,15 +1,11 @@
-version: '3'
+version: "3.8"
 services:
-  server:
-    build: ./server
+  app:
+    container_name: fullstack-app
+    build: .
     ports:
-      - "80:80"
-    restart: always
-
-  client:
-    build: ./client
-    ports:
-      - "5173:80"
-    depends_on:
-      - server
+      - "80:80"      # Map Express server to port 80
+      - "5173:5173"  # Map Vite frontend to default port
+    environment:
+      - NODE_ENV=production
     restart: always
