@@ -3,8 +3,14 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --border: 214.3 31.8% 91.4%; /* Ensure border color is defined */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+  }
+
   * {
-    @apply border-border;
+    @apply border-border; /* Apply border color globally */
   }
 
   body {
@@ -29,4 +35,3 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555; /* Darker on hover */
 }
-
