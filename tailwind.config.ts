@@ -2,23 +2,13 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: [
-    "./client/index.html", 
-    "./client/src/**/*.{js,jsx,ts,tsx}", 
-    "./client/src/**/*.css"
-  ],
+  content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-      },
-      backgroundColor: {
-        background: "hsl(var(--background))"
-      },
-      textColor: {
-        foreground: "hsl(var(--foreground))"
       },
       colors: {
         background: "hsl(var(--background))",
@@ -72,18 +62,22 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
-      borderColor: {
-        DEFAULT: "hsl(var(--border))",
-        border: "hsl(var(--border))",
-      },
       keyframes: {
         "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
+          from: {
+            height: "0",
+          },
+          to: {
+            height: "var(--radix-accordion-content-height)",
+          },
         },
         "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
+          from: {
+            height: "var(--radix-accordion-content-height)",
+          },
+          to: {
+            height: "0",
+          },
         },
       },
       animation: {
@@ -92,8 +86,5 @@ export default {
       },
     },
   },
-  plugins: [
-    require("tailwindcss-animate"), 
-    require("@tailwindcss/typography")
-  ],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;
