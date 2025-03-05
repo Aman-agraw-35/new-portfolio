@@ -1,14 +1,19 @@
 import type { Config } from "tailwindcss";
-
 export default {
   darkMode: ["class"],
-  content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}", "./client/src/**/*.css" ],
   theme: {
     extend: {
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      backgroundColor: {
+        background: "hsl(var(--background))"
+      },
+      textColor: {
+        foreground: "hsl(var(--foreground))"
       },
       colors: {
         background: "hsl(var(--background))",
@@ -77,18 +82,13 @@ export default {
         },
         "accordion-up": {
           from: {
-            height: "var(--radix-accordion-content-height)",
-          },
+            height: "var(--radix-accordion-content-height)",},
           to: {
             height: "0",
-          },
-        },
-      },
+          }, }, },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-      },
-    },
-  },
+      },},},
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;
