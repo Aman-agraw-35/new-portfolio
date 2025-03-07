@@ -1,51 +1,41 @@
-# Base image for building
+# ⚡ Stage 1: Build the project
 FROM node:18-alpine AS builder
 
 # Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json
+# Copy package files
 COPY package.json package-lock.json ./
-
-# Install dependencies
 RUN npm install
 
-# Copy the entire project
+# Copy all files
 COPY . .
+
+# Ensure Tailwind processes styles correctly before build
+RUN cd client && npx tailwindcss -i ./src/index.css -o ./src/output.css
 
 # Build the project
 RUN npm run build
 
-# Production image
+# ⚡ Stage 2: Production setup
 FROM node:18-alpine
 
 WORKDIR /app
 
-# Copy built files and dependencies
+# Copy only necessary built files from the builder stage
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/package-lock.json ./package-lock.json
-COPY --from=builder /app/postcss.config.js ./postcss.config.js
-COPY --from=builder /app/tailwind.config.ts ./tailwind.config.ts
-COPY --from=builder /app/theme.json ./theme.json
-COPY --from=builder /app/tsconfig.json ./tsconfig.json
-COPY --from=builder /app/vite.config.ts ./vite.config.ts
-COPY --from=builder /app/docker-compose.yml ./docker-compose.yml
-COPY --from=builder /app/drizzle.config.ts ./drizzle.config.ts
-COPY --from=builder /app/README.md ./README.md
 
-# Copy client, server, and shared directories
-COPY --from=builder /app/client ./client
-COPY --from=builder /app/server ./server
-COPY --from=builder /app/shared ./shared
+# Copy client build output explicitly
+COPY --from=builder /app/client/dist ./client/dist
 
-# Expose necessary ports
+# Expose required ports
 EXPOSE 80 3000
 
-# Set environment variables (Use .env instead in production)
+# Set environment variables (for testing; use .env in production)
+ENV NODE_ENV=production
 ENV MONGODB_URI=mongodb+srv://ghost:ghostishere@cluster0.llqvm.mongodb.net/
 
-# Start the server
+# Start the application
 CMD ["npm", "start"]
-
