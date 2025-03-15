@@ -4,11 +4,15 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(240, 5%, 84%); /* Equivalent to 'border-border' */
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    font-family: system-ui, sans-serif; /* Equivalent to 'font-sans' */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #13102b;
+    color: white; /* Equivalent to 'text-foreground' */
   }
 }
 
@@ -29,4 +33,3 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555; /* Darker on hover */
 }
-

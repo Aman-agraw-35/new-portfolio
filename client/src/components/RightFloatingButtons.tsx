@@ -36,7 +36,7 @@ const RightFloatingButtons = () => {
 
   return (
     <div
-      className="fixed right-4 top-1/2 transform -translate-y-1/2 z-50"
+      className="fixed right-4 top-24 transform -translate-y-1/2 z-50"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -48,7 +48,7 @@ const RightFloatingButtons = () => {
 
         {/* Expanded Links */}
         <div
-          className={`absolute right-16 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-lg p-3 flex flex-col gap-3 items-center transition-opacity duration-300 w-auto min-w-[200px] px-4 ${
+          className={`absolute right-16 top-32 transform -translate-y-1/2 mt-1 bg-white shadow-lg rounded-lg p-3 flex flex-col gap-3 items-center transition-opacity duration-300 w-auto min-w-[200px] px-4 ${
             isOpen ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         >
