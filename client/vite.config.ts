@@ -12,7 +12,7 @@ const __dirname = dirname(__filename);
 export default defineConfig({
   plugins: [
     react(),
-    tsconfigPaths(), // Ensure tsconfig.json paths are correctly resolved
+    tsconfigPaths(),
     runtimeErrorOverlay(),
     themePlugin(),
   ],
@@ -22,13 +22,18 @@ export default defineConfig({
       '@shared': resolve(__dirname, 'shared'),
     },
   },
-  root: resolve(__dirname, 'client'), // Set root to 'client' so it finds index.html
+  root: __dirname, // Set root to project root instead of 'client'
   publicDir: resolve(__dirname, 'client', 'public'), // Ensure public assets are correctly served
   build: {
-    outDir: resolve(__dirname, 'client', 'dist'), // Ensure the build output is inside client
+    outDir: resolve(__dirname, 'dist'), // Store the build output in 'dist' folder
     emptyOutDir: true,
     rollupOptions: {
       input: resolve(__dirname, 'client', 'index.html'), // Explicitly specify the entry point
+    },
+  },
+  server: {
+    watch: {
+      usePolling: true,
     },
   },
 });
