@@ -23,6 +23,7 @@ export default defineConfig({
     },
   },
   root: resolve(__dirname, 'client'), // Set root to 'client' so it finds index.html
+  publicDir: resolve(__dirname, 'client', 'public'), // Ensure public assets are correctly served
   build: {
     outDir: resolve(__dirname, 'client', 'dist'), // Ensure the build output is inside client
     emptyOutDir: true,
