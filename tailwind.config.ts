@@ -2,14 +2,14 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   darkMode: ["class"],
-  content: [
-    "./client/index.html",
-    "./client/src/**/*.{js,jsx,ts,tsx}",
+content: [
+  "./client/index.html",
+  "./client/src/**/*.{js,ts,jsx,tsx}",
+  "./client/components/**/*.{js,ts,jsx,tsx}",
+  "./client/pages/**/*.{js,ts,jsx,tsx}",
+  "./shared/**/*.{js,ts,jsx,tsx}", // ✅ If you use shared components with Tailwind
+],
 
-    // If using components elsewhere
-    "./client/components/**/*.{js,jsx,ts,tsx}",
-    "./client/pages/**/*.{js,jsx,ts,tsx}",
-  ],
   theme: {
     extend: {
       borderRadius: {
