@@ -11,6 +11,10 @@
     "db:push": "drizzle-kit push",
     "build-css": "npx tailwindcss-cli@latest build -i ./src/styles.css -o ./public/styles.css"
   },
+  "engines": {
+    "node": "18.x",
+    "npm": "9.x"
+  },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
