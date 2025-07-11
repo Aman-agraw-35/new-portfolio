@@ -4,36 +4,39 @@ FROM node:18-alpine AS builder
 # Set working directory
 WORKDIR /app
 
-# Copy package files
+# Install dependencies
 COPY package.json package-lock.json ./
 RUN npm install
 
-# Copy all project files
+# Copy project files
 COPY . .
 
-# Ensure Tailwind processes styles correctly
-RUN npx tailwindcss -c /app/tailwind.config.ts -i /app/client/src/index.css -o /app/client/src/output.css
+# Optional: Tailwind build (only needed if not done via Vite/PostCSS plugins)
+# Make sure the input/output paths are valid
+# You can remove this if Tailwind is integrated via PostCSS in Vite
+# RUN npx tailwindcss -c tailwind.config.ts -i client/src/index.css -o client/src/output.css
 
-# Build the project (assumes Vite for frontend)
+# Run the Vite + server build
 RUN npm run build
 
 # ⚡ Stage 2: Production setup
 FROM node:18-alpine
 
+# Set working directory
 WORKDIR /app
 
-# Copy only necessary built files from the builder stage
+# Copy only necessary files from builder
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/client/dist ./client/dist
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 
-# Expose required ports
-EXPOSE 80 3000
+# Expose your application's port
+EXPOSE 3000
 
-# Set environment variables (for testing; use .env in production)
+# Set environment variables (for testing only; use .env or secrets in production)
 ENV NODE_ENV=production
 ENV MONGODB_URI=mongodb+srv://ghost:ghostishere@cluster0.llqvm.mongodb.net/
 
-# Start the application (use correct script for Vite or Express)
-CMD ["npm", "run", "start"]
+# Start the Express server (not npm run start for Vite, which is dev-only)
+CMD ["node", "dist/index.js"]
