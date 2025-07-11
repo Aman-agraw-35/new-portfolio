@@ -1,63 +1,52 @@
-import express, { type Express } from "express";
-import fs from "fs";
-import path, { dirname } from "path";
+import { ViteDevServer } from "vite";
+import express from "express";
+import { createServer as createViteServer } from "vite";
+import path from "path";
 import { fileURLToPath } from "url";
-import { createServer as createViteServer, createLogger } from "vite";
-import { type Server } from "http";
-import viteConfig from "../vite.config";
-import { nanoid } from "nanoid";
+import fs from "fs";
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = path.dirname(__filename);
 
-const viteLogger = createLogger();
-
-export function log(message: string, source = "express") {
+export function log(message: string) {
   const formattedTime = new Date().toLocaleTimeString("en-US", {
-    hour: "numeric",
+    hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",
     hour12: true,
   });
 
-  console.log(`${formattedTime} [${source}] ${message}`);
+  console.log(`${formattedTime} [express] ${message}`);
 }
 
-export async function setupVite(app: Express, server: Server) {
-  const serverOptions = {
-    middlewareMode: true,
-    hmr: { server },
-    allowedHosts: true,
-  };
-
+export async function setupVite(app: express.Application, server: any) {
   const vite = await createViteServer({
-    ...viteConfig,
-    configFile: false,
-    customLogger: {
-      ...viteLogger,
-      error: (msg, options) => {
-        viteLogger.error(msg, options);
-        process.exit(1);
-      },
-    },
-    server: serverOptions,
+    server: { middlewareMode: true },
     appType: "custom",
+    base: "/",
   });
 
+  // Use Vite's connect instance as middleware
   app.use(vite.middlewares);
-  app.use("*", async (req, res, next) => {
-    const url = req.originalUrl;
-
+  
+  // Handle client-side routing in development
+  app.get("*", async (req, res, next) => {
+    // Skip API routes
+    if (req.path.startsWith("/api")) {
+      return next();
+    }
+    
     try {
-      const clientTemplate = path.resolve(__dirname, "..", "client", "index.html");
-
-      let template = await fs.promises.readFile(clientTemplate, "utf-8");
-      template = template.replace(
-        `src="/src/main.tsx"`,
-        `src="/src/main.tsx?v=${nanoid()}"`
-      );
-      const page = await vite.transformIndexHtml(url, template);
-      res.status(200).set({ "Content-Type": "text/html" }).end(page);
+      const url = req.originalUrl;
+      
+      // Read the index.html file from client directory
+      const clientIndexPath = path.join(__dirname, "..", "client", "index.html");
+      let template = await fs.promises.readFile(clientIndexPath, 'utf-8');
+      
+      // Transform the HTML with Vite
+      template = await vite.transformIndexHtml(url, template);
+      
+      res.status(200).set({ "Content-Type": "text/html" }).end(template);
     } catch (e) {
       vite.ssrFixStacktrace(e as Error);
       next(e);
@@ -65,22 +54,23 @@ export async function setupVite(app: Express, server: Server) {
   });
 }
 
-export function serveStatic(app: Express) {
-  // ✅ Fix path to match the actual Vite build output folder
-  const distPath = path.resolve(__dirname, "..", "client", "dist");
-
-  if (!fs.existsSync(distPath)) {
-    throw new Error(
-      `Could not find the build directory: ${distPath}, make sure to build the client first`
-    );
-  }
-
-  app.use(express.static(distPath));
-
-  // fallback to index.html for SPA routing
-  app.use("*", (_req, res) => {
-    res.sendFile(path.join(distPath, "index.html"));
+export function serveStatic(app: express.Application) {
+  const clientDistPath = path.join(__dirname, "client");
+  
+  log(`Serving static files from: ${clientDistPath}`);
+  
+  // Serve static files from the client build directory
+  app.use(express.static(clientDistPath));
+  
+  // Handle client-side routing - serve index.html for all non-API routes
+  app.get("*", (req, res, next) => {
+    // Skip API routes
+    if (req.path.startsWith("/api")) {
+      return next();
+    }
+    
+    const indexPath = path.join(clientDistPath, "index.html");
+    log(`Serving index.html from: ${indexPath}`);
+    res.sendFile(indexPath);
   });
-
-  log("Serving static files from " + distPath);
 }
