@@ -10,7 +10,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default defineConfig({
-  root: resolve(__dirname, 'client'), // ✅ Vite builds from the client folder
+  root: resolve(__dirname, 'client'),
   plugins: [
     react(),
     tsconfigPaths(),
@@ -24,7 +24,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: resolve(__dirname, 'client', 'dist'), // ✅ Matches what Express serves
+    outDir: resolve(__dirname, 'client', 'dist'),
     emptyOutDir: true,
     rollupOptions: {
       input: resolve(__dirname, 'client', 'index.html'),
@@ -33,6 +33,9 @@ export default defineConfig({
   server: {
     watch: {
       usePolling: true,
+    },
+    fs: {
+      allow: [resolve(__dirname, 'client')],
     },
   },
 });
