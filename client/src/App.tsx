@@ -12,7 +12,7 @@ import { ThemeToggle } from "./components/theme-toggle"; // Move here!
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={Home} />
+      <Route path="/mainpage" component={Home} />
       <Route component={NotFound} />
     </Switch>
   );
