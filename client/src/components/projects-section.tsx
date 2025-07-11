@@ -5,10 +5,31 @@ import { useState } from "react";
 
 const projects = [
   {
+    title: "MERNDevOps",
+    description: "A modern, production-ready MERN stack application with robust CI/CD, Docker-based containerization, real-time monitoring, and cloud deployment using AWS EC2.",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ipIdKbmz5S7buJ65LHFK9yVeylavd5sIow&s",
+    link: "https://github.com/Aman-agraw-35/MERNDevOps",
+    category: "all",
+  },
+  {
+    title: "yii2-cicd-nginx-docker-actions",
+    description: "A complete DevOps solution for deploying a Yii2 PHP application using Docker Swarm, NGINX reverse proxy, GitHub Actions CI/CD, and Ansible automation.",
+    image: "https://sheershoff.ru/wp-content/uploads/2020/01/yii2-docker-compose-selenium.jpg",
+    link: "https://github.com/Aman-agraw-35/yii2-cicd-nginx-docker-actions",
+    category: "all",
+  },
+  {
     title: "Chat Application",
     description: "Real-time chat application built with MERN stack",
     image: "https://img.freepik.com/premium-vector/chat-app-logo-design-template-can-be-used-icon-chat-application-logo_605910-1724.jpg",
     link: "https://github.com/Aman-agraw-35/mernchat-app",
+    category: "web",
+  }, 
+  {
+    title: "Ghost-resume",
+    description: "A modern, dark-themed resume editor with AI enhancement capabilities",
+    image: "https://www.foundit.in/career-advice/wp-content/uploads/2021/08/1566908941.jpg",
+    link: "https://github.com/Aman-agraw-35/Ghost-resume",
     category: "web",
   },
   {
@@ -23,7 +44,7 @@ const projects = [
     description: "E-commerce platform for hunting equipment",
     image: "https://static.wixstatic.com/media/8d1f6c_ae1eab54af5a4a409036fed18dda5efc.jpg",
     link: "https://github.com/Aman-agraw-35/Gunsmart",
-    category: "web",
+    category: "all",
   },
   {
     title: "Ghost Games",
