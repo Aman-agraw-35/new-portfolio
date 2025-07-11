@@ -6,12 +6,11 @@ import runtimeErrorOverlay from '@replit/vite-plugin-runtime-error-modal';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
 
-// Only used in vite.config.ts — safe for frontend config
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default defineConfig({
-  root: resolve(__dirname, 'client'), // ✅ Vite's root points to your frontend
+  root: resolve(__dirname, 'client'), // ✅ Vite builds from the client folder
   plugins: [
     react(),
     tsconfigPaths(),
@@ -25,7 +24,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: resolve(__dirname, 'dist', 'public'),
+    outDir: resolve(__dirname, 'client', 'dist'), // ✅ Matches what Express serves
     emptyOutDir: true,
     rollupOptions: {
       input: resolve(__dirname, 'client', 'index.html'),
