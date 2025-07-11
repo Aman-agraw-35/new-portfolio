@@ -1,5 +1,5 @@
 # ⚡ Stage 1: Build the project
-FROM node:18-alpine AS builder
+FROM node:18 AS builder
 
 # Set working directory
 WORKDIR /app
@@ -8,35 +8,33 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
 
-# Copy project files
+# Copy the entire app
 COPY . .
 
-# Optional: Tailwind build (only needed if not done via Vite/PostCSS plugins)
-# Make sure the input/output paths are valid
-# You can remove this if Tailwind is integrated via PostCSS in Vite
-# RUN npx tailwindcss -c tailwind.config.ts -i client/src/index.css -o client/src/output.css
-
-# Run the Vite + server build
+# Build the client (Vite) and server (e.g., esbuild or skip if using tsx in prod)
 RUN npm run build
 
 # ⚡ Stage 2: Production setup
-FROM node:18-alpine
+FROM node:18
 
-# Set working directory
 WORKDIR /app
 
-# Copy only necessary files from builder
+# Only copy production dependencies
+COPY package.json package-lock.json ./
+RUN npm install --omit=dev
+
+# Copy build artifacts
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/client/dist ./client/dist
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
 
-# Expose your application's port
+# Copy any other necessary runtime files (e.g., public folder, .env if needed)
+COPY --from=builder /app/public ./public
+
+# Expose port (optional if using 80 or 3000)
 EXPOSE 3000
 
-# Set environment variables (for testing only; use .env or secrets in production)
+# Set env
 ENV NODE_ENV=production
-ENV MONGODB_URI=mongodb+srv://ghost:ghostishere@cluster0.llqvm.mongodb.net/
 
-# Start the Express server (not npm run start for Vite, which is dev-only)
+# Start the server
 CMD ["node", "dist/index.js"]
