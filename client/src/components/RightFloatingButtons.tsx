@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileCirclePlus, faCode } from "@fortawesome/free-solid-svg-icons"; // Icons
-import leetcodeLogo from "@/assets/leetcode.png";
-import codeforcesLogo from "@/assets/codeforces.png";
-import gfgLogo from "@/assets/gfg.png";
-import codechefLogo from "@/assets/codechef.png";
+import leetcodeLogo from "../assets/leetcode.png";
+import codeforcesLogo from "../assets/codeforces.png";
+import gfgLogo from "../assets/gfg.png";
+import codechefLogo from "../assets/codechef.png";
 
 const platforms = [
   { name: "LeetCode", link: "https://leetcode.com/u/user7782Ru/", logo: leetcodeLogo },

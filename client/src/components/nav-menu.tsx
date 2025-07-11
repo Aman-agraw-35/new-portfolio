@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { useIsMobile } from "../hooks/use-mobile";
 import { useState } from "react";
 
 const menuItems = [

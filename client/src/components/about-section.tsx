@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import ReactPlayer from "react-player";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "../components/ui/card";
 
 export function AboutSection() {
   return (
