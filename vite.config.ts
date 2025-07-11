@@ -25,7 +25,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: resolve(__dirname, 'dist'), // frontend build output
+    outDir: resolve(__dirname, 'dist', 'public'),
     emptyOutDir: true,
     rollupOptions: {
       input: resolve(__dirname, 'client', 'index.html'),
