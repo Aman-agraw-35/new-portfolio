@@ -28,7 +28,7 @@ export function NavMenu() {
       animate={{ y: 0 }}
       className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b"
     >
-      <div className="container mx-auto px-4 h-16 flex items-center justify-center gap-8">
+      <div className="container mx-auto px-4 h-16 flex items-center justify-center gap-4 md:gap-8">
         {menuItems.map((item) => (
           <motion.a
             key={item.href}
