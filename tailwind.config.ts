@@ -5,9 +5,7 @@ const config: Config = {
 content: [
   "./client/index.html",
   "./client/src/**/*.{js,ts,jsx,tsx}",
-  "./client/components/**/*.{js,ts,jsx,tsx}",
-  "./client/pages/**/*.{js,ts,jsx,tsx}",
-  "./shared/**/*.{js,ts,jsx,tsx}", // ✅ If you use shared components with Tailwind
+  "./shared/**/*.{js,ts,jsx,tsx}"
 ],
 
   theme: {
