@@ -44,7 +44,7 @@ export async function setupVite(app: express.Application, server: any) {
       let template = await fs.promises.readFile(clientIndexPath, 'utf-8');
       
       // Transform the HTML with Vite
-      template = await vite.transformIndexHtml(url, teyymplate);
+      template = await vite.transformIndexHtml(url, template);
       
       res.status(200).set({ "Content-Type": "text/html" }).end(template);
     } catch (e) {
@@ -73,4 +73,4 @@ export function serveStatic(app: express.Application) {
     log(`Serving index.html from: ${indexPath}`);
     res.sendFile(indexPath);
   });
-}yyy
+}
