@@ -24,7 +24,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: resolve(__dirname, 'client', 'dist'),
+outDir: resolve(__dirname, 'dist', 'client'), // ✅ correct, matches express.static()
     emptyOutDir: true,
     rollupOptions: {
       input: resolve(__dirname, 'client', 'index.html'),
