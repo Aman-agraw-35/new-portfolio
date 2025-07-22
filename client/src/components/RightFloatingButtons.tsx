@@ -10,7 +10,7 @@ const platforms = [
   { name: "LeetCode", link: "https://leetcode.com/u/user7782Ru/", logo: leetcodeLogo },
   { name: "Codeforces", link: "https://codeforces.com/profile/GHOST-AMAN", logo: codeforcesLogo },
   { name: "GeeksforGeeks", link: "https://www.geeksforgeeks.org/user/amanagbqrd/", logo: gfgLogo },
-  // { name: "CodeChef", link: "https://www.codechef.com/users/amanagrawal35", logo: codechefLogo },
+   { name: "CodeChef", link: "https://www.codechef.com/users/ghost_aman", logo: codechefLogo },
   { name: "Resume", link: "https://drive.google.com/file/d/1_y9l9mNPAc9FSRJRVhk0IGgXM_N8YzXR/view", icon: faFileCirclePlus },
 ];
 
