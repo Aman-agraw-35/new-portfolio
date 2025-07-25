@@ -5,6 +5,14 @@ import { useState } from "react";
 
 const projects = [
   {
+  title: "Ghost-React-Dhango-App",
+  description: "A full-stack authentication system with a React (Vite + TypeScript) frontend and Django REST backend. Features secure JWT-based login, protected routes and Axios interceptors.",
+  image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTse57axkqCvcl4neVdYvaY5S-ZKns3sBP-Dw&s",
+  link: "https://github.com/Aman-agraw-35/Ghost-React-Dhango-APP",
+  category: "web",
+}
+,
+  {
     title: "MERNDevOps",
     description: "A modern, production-ready MERN stack application with robust CI/CD, Docker-based containerization, real-time monitoring, and cloud deployment using AWS EC2.",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ipIdKbmz5S7buJ65LHFK9yVeylavd5sIow&s",
