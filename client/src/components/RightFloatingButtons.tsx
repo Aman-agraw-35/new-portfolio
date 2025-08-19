@@ -11,7 +11,7 @@ const platforms = [
   { name: "Codeforces", link: "https://codeforces.com/profile/GHOST-AMAN", logo: codeforcesLogo },
   { name: "GeeksforGeeks", link: "https://www.geeksforgeeks.org/user/amanagbqrd/", logo: gfgLogo },
    { name: "CodeChef", link: "https://www.codechef.com/users/ghost_aman", logo: codechefLogo },
-  { name: "Resume", link: "https://docs.google.com/document/d/1BBsIhmML5bwXBllPqTj5gAcIiL1lcJskQ8mVKrEse6U/edit?tab=t.0", icon: faFileCirclePlus },
+  { name: "Resume", link: "https://drive.google.com/file/d/1_y9l9mNPAc9FSRJRVhk0IGgXM_N8YzXR/view", icon: faFileCirclePlus },
 ];
 
 const RightFloatingButtons = () => {
