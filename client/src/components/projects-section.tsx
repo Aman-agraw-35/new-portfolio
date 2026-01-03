@@ -9,7 +9,7 @@ const projects = [
     description: "An AI-powered chatbot with persistent memory and live web search capabilities, built using Next.js, FastAPI, and MongoDB.",
     image: "https://miro.medium.com/v2/resize:fit:1100/format:webp/0*loI9Xd2y7_ctpvRS.png",
     link: "https://github.com/Aman-agraw-35/Ghost-AI",
-    category: "web",
+    category: "all",
   },
   {
     title: "Wordpress-k8s-Helm",
@@ -23,7 +23,7 @@ const projects = [
     description: "A full-stack authentication system with a React (Vite + TypeScript) frontend and Django REST backend. Features secure JWT-based login, protected routes and Axios interceptors.",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTse57axkqCvcl4neVdYvaY5S-ZKns3sBP-Dw&s",
     link: "https://github.com/Aman-agraw-35/Ghost-React-Dhango-APP",
-    category: "web",
+    category: "all",
   },
   {
     title: "DockStream - CI/CD Automation",
@@ -44,21 +44,21 @@ const projects = [
     description: "A real-time chat application built with React, Node.js, Express, and Socket.io, featuring user authentication and responsive design.",
     image: "https://img.freepik.com/premium-vector/chat-app-logo-design-template-can-be-used-icon-chat-application-logo_605910-1724.jpg",
     link: "https://github.com/Aman-agraw-35/EchoChat",
-    category: "web",
+    category: "all",
   },
   {
     title: "Ghost-resume",
     description: "A modern, dark-themed resume editor with AI enhancement capabilities",
     image: "https://www.foundit.in/career-advice/wp-content/uploads/2021/08/1566908941.jpg",
     link: "https://github.com/Aman-agraw-35/Ghost-resume",
-    category: "web",
+    category: "all",
   },
   {
     title: "Smart India Hackathon",
     description: "Project developed for Smart India Hackathon 2024",
     image: "https://i.ytimg.com/vi/znMbKz6ZPno/maxresdefault.jpg",
     link: "https://github.com/Aman-agraw-35/SmartIndiaHackathon-2k24",
-    category: "web",
+    category: "all",
   },
   {
     title: "Gunsmart",
@@ -72,18 +72,18 @@ const projects = [
     description: "Gaming platform project",
     image: "https://moewalls.com/wp-content/uploads/2023/01/ghost-call-of-duty-modern-warfare-ii-thumb-728x410.jpg",
     link: "https://github.com/Aman-agraw-35/GHOST-GAMES-",
-    category: "web",
+    category: "all",
   },
   {
     title: "Jan Sahayata",
     description: "Google's Solutions Challenge 2024 Project",
     image: "https://curlytales.com/wp-content/uploads/2020/04/Dubai-based-charities-distribute-over-31570-daily-meals-to-underprivileged-people.png",
     link: "https://github.com/Aman-agraw-35/SOLUTIONS-CHALLENGE-24-PROJECT",
-    category: "web",
+    category: "all",
   }
 ];
 
-const categories = ["all", "web"];
+const categories = ["all"];
 
 export function ProjectsSection() {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -104,7 +104,7 @@ export function ProjectsSection() {
           My Projects
         </motion.h2>
 
-        <div className="flex justify-center gap-4 mb-12">
+        {/* <div className="flex justify-center gap-4 mb-12">
           {categories.map((category) => (
             <Button
               key={category}
@@ -115,7 +115,7 @@ export function ProjectsSection() {
               {category}
             </Button>
           ))}
-        </div>
+        </div> */}
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project, index) => (
