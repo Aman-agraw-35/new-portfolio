@@ -80,14 +80,7 @@ const projects = [
     image: "https://curlytales.com/wp-content/uploads/2020/04/Dubai-based-charities-distribute-over-31570-daily-meals-to-underprivileged-people.png",
     link: "https://github.com/Aman-agraw-35/SOLUTIONS-CHALLENGE-24-PROJECT",
     category: "web",
-  },
-  {
-    title: "Google Keep Clone",
-    description: "A clone of Google's note-taking application",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwX8l9SlO0FrYJ-_BoZVAMNAavApyQyzWcBw&s",
-    link: "https://github.com/Aman-agraw-35/Google-keep-clone",
-    category: "web",
-  },
+  }
 ];
 
 const categories = ["all", "web"];
