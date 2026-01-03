@@ -14,7 +14,7 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="fixed top-4 right-4 z-50"
+      className="fixed top-4 right-4 z-50 invisible"
     >
       <motion.div
         initial={false}

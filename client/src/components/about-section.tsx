@@ -40,7 +40,7 @@ export function AboutSection() {
           >
             <h3 className="text-2xl font-semibold">My Journey</h3>
             <p className="text-muted-foreground">
-              I'm Aman Agrawal, a student at IIIT Bhopal with a CGPA of 8.56 and a strong academic foundation, having cleared IIT JEE. I specialize in full-stack web development with expertise in the MERN stack, Next.js, and DevOps. Additionally, I am proficient in Data Structures and Algorithms (DSA) and actively participate in competitive programming. My technical skills, problem-solving abilities, and continuous learning mindset drive me to excel in software development.
+           Hi, I'm Aman Agrawal, a final-year B.Tech student at IIIT Bhopal (CGPA: 8.72) with strong interests in full-stack development, Generative AI, and DevOps. I have a solid competitive programming background (Codeforces Expert, LeetCode Knight, CodeChef 4★) with 800+ DSA and CP problems solved. I've built and deployed production-grade projects like Guns-Mart (Next.js, Docker, Jenkins, NGINX, AWS), Ghost-AI (GenAI chatbot with live search and persistent memory), and DockStream (CI/CD automation with monitoring using Prometheus and Grafana), along with open-source contributions to Profocto and Opsimate. My tech stack includes C++, Python, JavaScript/TypeScript, MERN, Next.js, FastAPI, MongoDB, Docker, CI/CD pipelines, and AWS, and I enjoy building scalable systems through hands-on learning and problem-solving.
             </p>
           </motion.div>
         </div>

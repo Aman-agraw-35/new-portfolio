@@ -5,18 +5,31 @@ import { useState } from "react";
 
 const projects = [
   {
-  title: "Ghost-React-Dhango-App",
-  description: "A full-stack authentication system with a React (Vite + TypeScript) frontend and Django REST backend. Features secure JWT-based login, protected routes and Axios interceptors.",
-  image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTse57axkqCvcl4neVdYvaY5S-ZKns3sBP-Dw&s",
-  link: "https://github.com/Aman-agraw-35/Ghost-React-Dhango-APP",
-  category: "web",
-}
-,
+    title: "Ghost-AI",
+    description: "An AI-powered chatbot with persistent memory and live web search capabilities, built using Next.js, FastAPI, and MongoDB.",
+    image: "https://miro.medium.com/v2/resize:fit:1100/format:webp/0*loI9Xd2y7_ctpvRS.png",
+    link: "https://github.com/Aman-agraw-35/Ghost-AI",
+    category: "web",
+  },
   {
-    title: "MERNDevOps",
+    title: "Wordpress-k8s-Helm",
+    description: "A comprehensive Helm chart for deploying WordPress on Kubernetes with MySQL, complete with persistent storage, metrics, and monitoring using Prometheus and Grafana.",
+    image: "https://i0.wp.com/codeblog.dotsandbrackets.com/wp-content/uploads/2017/07/kubernetes.jpg?resize=821%2C714&ssl=1",
+    link: "https://github.com/Aman-agraw-35/Wordpress-k8s-Helm",
+    category: "all",
+  },
+  {
+    title: "Ghost-React-Dhango-App",
+    description: "A full-stack authentication system with a React (Vite + TypeScript) frontend and Django REST backend. Features secure JWT-based login, protected routes and Axios interceptors.",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTse57axkqCvcl4neVdYvaY5S-ZKns3sBP-Dw&s",
+    link: "https://github.com/Aman-agraw-35/Ghost-React-Dhango-APP",
+    category: "web",
+  },
+  {
+    title: "DockStream - CI/CD Automation",
     description: "A modern, production-ready MERN stack application with robust CI/CD, Docker-based containerization, real-time monitoring, and cloud deployment using AWS EC2.",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ipIdKbmz5S7buJ65LHFK9yVeylavd5sIow&s",
-    link: "https://github.com/Aman-agraw-35/MERNDevOps",
+    link: "https://github.com/Aman-agraw-35/DockStream",
     category: "all",
   },
   {
@@ -27,12 +40,12 @@ const projects = [
     category: "all",
   },
   {
-    title: "Chat Application",
-    description: "Real-time chat application built with MERN stack",
+    title: "Echo-Chat-App",
+    description: "A real-time chat application built with React, Node.js, Express, and Socket.io, featuring user authentication and responsive design.",
     image: "https://img.freepik.com/premium-vector/chat-app-logo-design-template-can-be-used-icon-chat-application-logo_605910-1724.jpg",
-    link: "https://github.com/Aman-agraw-35/mernchat-app",
+    link: "https://github.com/Aman-agraw-35/EchoChat",
     category: "web",
-  }, 
+  },
   {
     title: "Ghost-resume",
     description: "A modern, dark-themed resume editor with AI enhancement capabilities",
@@ -74,7 +87,7 @@ const projects = [
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwX8l9SlO0FrYJ-_BoZVAMNAavApyQyzWcBw&s",
     link: "https://github.com/Aman-agraw-35/Google-keep-clone",
     category: "web",
-  }
+  },
 ];
 
 const categories = ["all", "web"];

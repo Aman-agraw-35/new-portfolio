@@ -10,8 +10,8 @@ const platforms = [
   { name: "LeetCode", link: "https://leetcode.com/u/user7782Ru/", logo: leetcodeLogo },
   { name: "Codeforces", link: "https://codeforces.com/profile/GHOST-AMAN", logo: codeforcesLogo },
   { name: "GeeksforGeeks", link: "https://www.geeksforgeeks.org/user/amanagbqrd/", logo: gfgLogo },
-   { name: "CodeChef", link: "https://www.codechef.com/users/ghost_aman", logo: codechefLogo },
-  { name: "Resume", link: "https://drive.google.com/file/d/1_y9l9mNPAc9FSRJRVhk0IGgXM_N8YzXR/view", icon: faFileCirclePlus },
+  //  { name: "CodeChef", link: "https://www.codechef.com/users/ghost_aman", logo: codechefLogo },
+  { name: "Resume", link: "https://drive.google.com/file/d/1THk4jiIn4EtgCS0F2E5INmevaIuEarh9/view", icon: faFileCirclePlus },
 ];
 
 const RightFloatingButtons = () => {
@@ -48,7 +48,7 @@ const RightFloatingButtons = () => {
 
         {/* Expanded Links */}
         <div
-          className={`absolute right-16 top-32 transform -translate-y-1/2 mt-1 bg-white shadow-lg rounded-lg p-3 flex flex-col gap-3 items-center transition-opacity duration-300 w-auto min-w-[200px] px-4 ${
+          className={`absolute right-16 top-28 transform -translate-y-1/2  bg-white shadow-lg rounded-lg p-4 flex flex-col gap-3 items-center transition-opacity duration-300 w-auto min-w-[200px] px-4 ${
             isOpen ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         >

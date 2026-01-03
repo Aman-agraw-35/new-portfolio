@@ -24,9 +24,15 @@ export function AchievementsSection() {
     {
       title: "DSA & CP Achievements",
       description:
-        "Solved 150+ problems on LeetCode, 100+ problems on GeeksForGeeks, 80+ problems on CodeChef, and completed Striver's A2Z DSA Course (100%).",
-      date: "2024",
+        "Solved 450+ problems on LeetCode, 320+ problems on GeeksForGeeks, 80+ problems on CodeChef, and completed Striver's A2Z DSA Course (100%).",
+      date: "2025",
     },
+    {
+      title: "Super Contributor - hacktoberfest 2025",
+      description:
+        "Earned 'Super Contributor' badge by and contributed to real-world open-source projects during Hacktoberfest 2025. A tree planted in my name! and received a limited-edition T-shirt.",
+      date: "Oct 2025",
+    }
   ];
 
   return (
